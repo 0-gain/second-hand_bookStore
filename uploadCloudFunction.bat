@@ -1,0 +1,1 @@
+"D:\微信web开发者工具\cli.bat" cloud functions deploy --e mini-book-9g0t3pjt8a356dc9 --n quickstartFunctions --r --project "E:\web\webProgram\微信小程序\bookProgram" --report_first --report

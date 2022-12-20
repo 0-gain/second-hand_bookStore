@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/mian-profile/main-profile",
+    "pages/mian-book/main-book",
+    "pages/main-shopCar/main-shopCar",
+    "pages/main-publish/main-publish",
+    "pages/student-login/student-login"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "second-hand bookstore",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/mian-book/main-book",
+        "iconPath": "assets/images/home.png",
+        "selectedIconPath": "assets/images/home-active.png"
+      },
+      {
+        "text": "发布",
+        "pagePath": "pages/main-publish/main-publish",
+        "iconPath": "assets/images/publish.png",
+        "selectedIconPath": "assets/images/publish-active.png"
+      },
+      {
+        "text": "购物车",
+        "pagePath": "pages/main-shopCar/main-shopCar",
+        "iconPath": "assets/images/shopCar.png",
+        "selectedIconPath": "assets/images/shopCar-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mian-profile/main-profile",
+        "iconPath": "assets/images/profile.png",
+        "selectedIconPath": "assets/images/profile-active.png"
+      }
+    ],
+    "color": "#9E9E9E",
+    "selectedColor": "#515151"
+  },
+  "sitemapLocation": "sitemap.json"
+}

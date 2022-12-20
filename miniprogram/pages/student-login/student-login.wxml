@@ -1,0 +1,25 @@
+<view class="login">
+  <view class="top">
+    <image class="logo" src="../../assets/images/logo.png" mode="" />
+    <text class="des">一本好书，值得被多次分享</text>
+  </view>
+
+  <van-cell-group>
+    <verify-input class="verifyInput" label="用户名" type="username" bindcpnClick="onCpnClick"></verify-input>
+    <van-cell title="学校" value="{{form.schoolName}}"  is-link required  bind:click="onShowPopup" />
+    <verify-input class="verifyInput" label="学号" type="studentId" bindcpnClick="onCpnClick"></verify-input>
+    <verify-input class="verifyInput" label="电话号码" type="phone" bindcpnClick="onCpnClick"></verify-input>
+    <verify-input class="verifyInput" label="邮箱" type="email" bindcpnClick="onCpnClick"></verify-input>
+  </van-cell-group>
+  <!-- 弹出层 -->
+  <van-popup show="{{ isShowPop }}" bind:close="onClose" position="bottom" custom-style="height: 40%;">
+    <van-picker show-toolbar title="学校名称" bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ columns }}" bind:change="onChange" />
+  </van-popup>
+
+  <van-toast id="van-toast" />
+
+  <!-- 登录 -->
+  <view class="authorization">
+    <van-button type="primary" round icon="wechat" bind:click="onClickLogin">微信登录</van-button>
+  </view>
+</view>

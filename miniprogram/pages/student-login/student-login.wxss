@@ -1,0 +1,34 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60rpx;
+  height: 100vh;
+}
+.login .top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50rpx;
+}
+.login .top .logo{
+  width: 170rpx;
+  height: 170rpx;
+  margin-bottom: 20rpx;
+}
+.login .top .des{
+  font-size: 30rpx;
+}
+.login .authorization .van-button--normal{
+  width: 80vw;
+}
+.login .authorization{
+  margin-top: 60rpx;
+}
+.van-cell .van-cell__value {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
