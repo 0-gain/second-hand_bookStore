@@ -1,0 +1,5 @@
+<view class="user_info">
+  <cell type="avatarUrl" label="头像" bindcustomEvent="onCustomEvent"/>
+  <cell type="nickname" label="昵称" bindcustomEvent="onCustomEvent"/>
+  <button class="btn" type="primary" bindtap="onConfirm">确认</button>
+</view>

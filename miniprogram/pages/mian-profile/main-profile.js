@@ -7,6 +7,14 @@ Page({
   },
   // 事件监听
   onLogin() {
+    // 判断当前用户是否已经登录
+    if(this.data.user){
+      // 已经登录，则跳转至修改个人中心页面
+      wx.navigateTo({
+        url: '/pages/update-profile/update-profile',
+      })
+      return
+    }
     // 用户点击登录
     Toast.loading({
       message: '正在登录...',

@@ -1,1 +1,119 @@
 /* pages/mian-book/main-book.wxss */
+.content{
+  margin: 20rpx 30rpx;
+}
+.swiper-wrap{
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.swiper-wrap .swiper-item{
+  width: 100%;
+  height: 100%;
+}
+.swiper-wrap .swiper-item .bg{
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+.discount{
+  margin-top: 40rpx;
+  background-color: #fff;
+  padding: 20rpx 20rpx;
+  border-radius: 20rpx;
+}
+.discount .title{
+  font-weight: 700;
+  margin-bottom: 20rpx;
+}
+.discount .scroll-wrap{
+  display: flex;
+  height: 400rpx;
+}
+.discount .scroll-wrap .item{
+  display: flex;
+  flex-direction: column;
+  width: 200rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+.discount .scroll-wrap .item:first-child{
+  margin: 0;
+}
+.discount .scroll-wrap .item .cover{
+  width: 200rpx;
+}
+.discount .scroll-wrap .item .name{
+  width: 200rpx;
+  padding: 20rpx 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.discount .scroll-wrap .item .price{
+  display: flex;
+  font-size: 25rpx;
+}
+.discount .scroll-wrap .item .price .nowPrice{
+  font-weight: bold;
+  color: rgb(210,172,107);
+  margin-right: 20rpx;
+}
+.discount .scroll-wrap .item .price .oldPrice{
+  color: rgb(185,185,185);
+  text-decoration: line-through
+}
+.content .recommend{
+  margin-top: 50rpx;
+  background-color: #fff;
+  padding: 20rpx 20rpx;
+  border-radius: 20rpx;
+}
+.content .recommend > .title{
+  font-weight: 700;
+  margin-bottom: 20rpx;
+}
+.content .recommend .recommend-content .item{
+  position: relative;
+  display: flex;
+  padding: 20rpx 0;
+  font-size: 25rpx;
+}
+.content .recommend .recommend-content .item::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1rpx solid #ebedf0;
+  transform-origin: center;
+}
+.content .recommend .recommend-content .cover{
+  width: 120rpx;
+}
+.content .recommend .recommend-content .item .info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 20rpx;
+}
+.content .recommend .recommend-content .item .info .title{
+  font-size: 35rpx;
+}
+.content .recommend .recommend-content .item .info .rating{
+  color: rgb(210,172,107);
+}
+.content .recommend .recommend-content .item .info .price{
+  display: flex;
+}
+.content .recommend .recommend-content .item .info .price .nowPrice{
+  font-weight: bold;
+  color: rgb(210,172,107);
+  margin-right: 20rpx;
+}
+.content .recommend .recommend-content .item .info .price .oldPrice{
+  color: rgb(185,185,185);
+  text-decoration: line-through
+}
+.content .recommend .recommend-content .item .shopCar{
+  align-self: end;
+}

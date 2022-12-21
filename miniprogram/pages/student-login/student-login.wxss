@@ -3,13 +3,12 @@
   flex-direction: column;
   align-items: center;
   margin-top: 60rpx;
-  height: 100vh;
 }
 .login .top{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50rpx;
+  margin-bottom: 200rpx;
 }
 .login .top .logo{
   width: 170rpx;
@@ -24,6 +23,9 @@
 }
 .login .authorization{
   margin-top: 60rpx;
+}
+.van-cell{
+  font-size: 30rpx !important;
 }
 .van-cell .van-cell__value {
   overflow: hidden;

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "cell":"/components/cell/cell"
+  },
+
+  "navigationBarTitleText": "个人信息"
+}

@@ -1,7 +1,7 @@
 <view class="profile">
   <!-- 登录 -->
   <view class="login">
-    <image class="avatar" bindtap="onLogin" src="{{user.userInfo.avatarUrl || ' ../../assets/images/default-avatar.jpg'}}"  mode="aspectFit"/>
+    <image class="avatar" bindtap="onLogin" src="{{user.userInfo.avatarUrl || ' ../../assets/images/default-avatar.jpg'}}"  mode="scaleToFill"/>
     <text class="des">hi，{{user.username ? user.username + '同学' : '一秒登录体验所有功能'}}</text>
   </view>
 

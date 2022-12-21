@@ -1,0 +1,40 @@
+.cell{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70rpx;
+  padding: 16rpx 40rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+}
+.cell::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 40rpx;
+  right: 40rpx;
+  border-bottom: 1rpx solid #ebedf0;
+  transform: scaleY(.5);
+  transform-origin: center;
+}
+.cell .text{
+  min-width: 200rpx;
+  margin: auto 0;
+}
+.cell .nickname{
+  text-align: right;
+}
+.cell .avatar-wrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 140rpx;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.cell .avatar-wrapper .avatar{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}

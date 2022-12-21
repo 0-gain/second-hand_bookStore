@@ -1,9 +1,7 @@
-<van-field 
-    value="{{ value }}" 
-    required 
-    label="{{label}}" 
-    placeholder="请输入您的{{label}}" 
-    error-message="{{errorMsg}}" 
-    bind:blur="onBlur" 
-    bind:change="onChange" 
-/>
+<view class="section">
+  <text class="label">{{label}}</text>
+  <view class="info">
+    <input class="ipt" type="text" bindinput="onChange" bindblur="onBlur" value="{{ value }}" placeholder="请输入您的{{label}}" />
+    <text class="error" wx:if="{{errorMsg}}">{{errorMsg}}</text>
+  </view>
+</view>

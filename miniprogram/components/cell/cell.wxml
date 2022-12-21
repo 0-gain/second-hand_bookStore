@@ -1,0 +1,9 @@
+<view class="cell">
+  <view class="text">{{label}}</view>
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" wx:if="{{type === 'avatarUrl'}}">
+    <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+    <van-icon name="arrow" />
+  </button>
+  <input class="nickname" type="nickname" bindblur="onBlur" wx:if="{{type === 'nickname'}}" value="{{nickname}}" />
+  <input class="nickname" type="text" bindblur="onBlur" wx:if="{{type === 'text'}}" placeholder="请输入{{label}}" />
+</view>

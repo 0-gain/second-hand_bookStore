@@ -1,2 +1,78 @@
 <!--pages/mian-book/main-book.wxml-->
-<text>pages/mian-book/main-book.wxml</text>
+<view>
+  <van-search value="" shape="round" background="#4fc08d" placeholder="请输入搜索关键词" />
+  <view class="content">
+    <!-- 轮播图 -->
+    <swiper class="swiper-wrap" indicator-dots circular autoplay>
+      <block wx:for="{{banner}}" wx:key="index">
+        <swiper-item>
+          <view class="swiper-item">
+            <image class="bg" src="{{item.fileId}}" mode="scaleToFill" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 特价书籍 -->
+    <view class="discount">
+      <view class="title">特价书籍</view>
+      <scroll-view class="scroll-wrap" scroll-x enable-flex>
+        <block wx:for="{{recommendList}}" wx:key="_id">
+          <view class="item">
+            <image class="cover" src="{{item.fileId}}" mode="scaleToFill" />
+            <text class="name">{{item.title}}</text>
+            <view class="price">
+              <text class="nowPrice">￥{{item.nowPrice}}</text>
+              <text class="oldPrice">￥{{item.oldPrice}}</text>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <!-- 精品推荐 -->
+    <view class="recommend">
+      <view class="title">精品推荐</view>
+      <view class="recommend-content">
+        <view class="item">
+          <image class="cover" src="../../assets/images/book/10.jpg" mode="widthFix" />
+          <view class="info">
+            <text class="title">大地之灯</text>
+            <text class="author">安顿</text>
+            <text class="rating">豆瓣评分7.8</text>
+            <view class="price">
+              <view class="nowPrice">￥10.64</view>
+              <view class="oldPrice">￥28.00</view>
+            </view>
+          </view>
+          <view class="shopCar">
+            <van-icon name="shopping-cart-o" />
+          </view>
+        </view>
+        <view class="item">
+          <image class="cover" src="../../assets/images/book/10.jpg" mode="widthFix" />
+          <view class="info">
+            <text class="title">大地之灯</text>
+            <text class="author">安顿</text>
+            <text class="rating">豆瓣评分7.8</text>
+            <view class="price">
+              <view class="nowPrice">￥10.64</view>
+              <view class="oldPrice">￥28.00</view>
+            </view>
+          </view>
+        </view>
+        <view class="item">
+          <image class="cover" src="../../assets/images/book/10.jpg" mode="widthFix" />
+          <view class="info">
+            <text class="title">大地之灯</text>
+            <text class="author">安顿</text>
+            <text class="rating">豆瓣评分7.8</text>
+            <view class="price">
+              <view class="nowPrice">￥10.64</view>
+              <view class="oldPrice">￥28.00</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

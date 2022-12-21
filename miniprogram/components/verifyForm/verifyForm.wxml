@@ -1,0 +1,10 @@
+<!--components/verifyForm/verifyForm.wxml-->
+<form>
+  <slot id="slot"/>
+  <view bindtap="onSubmit">
+    <slot name="submit">
+      <button>授权登录</button>
+    </slot>
+  </view>
+
+</form>

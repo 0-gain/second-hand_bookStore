@@ -1,0 +1,6 @@
+/* pages/update-profile/update-profile.wxss */
+.user_info .btn{
+  margin-top: 40rpx;
+  width: 600rpx;
+  border-radius: 50rpx;
+}

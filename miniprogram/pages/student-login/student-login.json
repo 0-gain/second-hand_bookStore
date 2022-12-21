@@ -1,13 +1,12 @@
 {
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-picker": "@vant/weapp/picker/index",
     "van-toast": "@vant/weapp/toast/index",
-    "verify-input":"../../components/verifyInput/verifyInput"
+    "verify-input":"../../components/verifyInput/verifyInput",
+    "verify-form":"../../components/verifyForm/verifyForm"
   },
   "navigationBarTitleText": "用户登录"
 }

@@ -16,7 +16,6 @@ Page({
     // picker内容
     columns: [],
   },
-
   // 显示弹出层
   onShowPopup() {
     // 获取集合中所有的数据
@@ -50,9 +49,9 @@ Page({
   onChange(event) {
     const {
       value,
-      index
+
     } = event.detail;
-    Toast(`当前值：${value}，当前索引：${index}`)
+    Toast(`当前值：${value}`)
   },
   onConfirm(event) {
     const {
@@ -84,13 +83,6 @@ Page({
     } = event
     this.data.form[name] = value
   },
-  // 点击登录
-  onClickLogin() {
-    // this.onhandleVerifyInputCnpt()
-    wx.getUserProfile({
-      desc: '获取用户登录',
-    }).then(res=>{console.log(res)})
-  },
   // 自定义事件
   onCpnClick(event) {
     const {
@@ -99,59 +91,77 @@ Page({
     } = event.detail
     this.data.form[type] = value
   },
-  // 调用子组件中的方法
-  async onhandleVerifyInputCnpt() {
-    const cnpts = this.selectAllComponents(".verifyInput")
-    const blurArr = cnpts.map(cnpt => {
-      return cnpt.onBlur()
-    })
-
-    if (blurArr.every(el => el === true)) {
-      const arr = cnpts.map(cnpt => {
-        return cnpt.checkFn()
+  // 微信授权登录
+  onFormSubmit(event) {
+    if (!event.detail) return
+    if (this.data.form.schoolName === '请选择所在的学校') {
+      wx.showToast({
+        title: '请选择学校名称',
+        icon: 'error',
+        duration: 2000
       })
-     const verifyArr =  await Promise.all(arr)
-      if (verifyArr.every(el => el === true) && this.data.form.schoolName !== '请选择所在的学校') {
-        Toast.loading({
-          message: '加载中...',
-          forbidClick: true,
-          loadingType: 'spinner',
-        });
-        wx.getUserProfile({
-          desc: "用于用户登录",
-        }).then(res => {
-          console.log(res)
-          // 获取用户信息
-          const userInfo = res.userInfo
-          const {
-            username,
-            studentId,
-            schoolName,
-            phone,
-            email
-          } = this.data.form
-          userCol.add({
-            data: {
-              userInfo,
-              username,
-              studentId,
-              schoolName,
-              phone,
-              email
-            }
-          }).then(res => {
-            wx.switchTab({
-              url: '/pages/mian-profile/main-profile',
-            })
-          })
-        })
-      } else if (this.data.form.schoolName === '请选择所在的学校') {
-        Toast.fail('请选择所在的学校');
-      } else {
-        Toast.fail('请按规范填写');
-      }
-    } else {
-      Toast.fail('必填字段不能为空！');
+      return
     }
-  }
+    const {
+      username,
+      studentId,
+      schoolName,
+      phone,
+      email
+    } = this.data.form
+    wx.showModal({
+      title: '温馨提示',
+      content: '需要授权微信登录后才可以正常使用小程序功能',
+      success(res) {
+        if (res.confirm) {
+          wx.getUserProfile({
+              desc: "用于用户登录",
+            })
+            .then(({
+              userInfo
+            }) => {
+              console.log(userInfo)
+              wx.showLoading({
+                title: '加载中',
+              })
+              userCol.add({
+                data: {
+                  username,
+                  schoolName,
+                  studentId,
+                  phone,
+                  email,
+                  userInfo
+                }
+              }).then(() => {
+                wx.switchTab({
+                  url: '/pages/mian-profile/main-profile',
+                }).then(() => {
+                  wx.hideLoading()
+                }).catch(() => {
+                  wx.showToast({
+                    title: '登录失败',
+                    icon: 'error',
+                    duration: 2000
+                  });
+                })
+              })
+            }).catch(error => {
+              wx.showToast({
+                title: '您拒绝了授权',
+                icon: 'error',
+                duration: 2000
+              });
+              console.log(error, 'error')
+            })
+        } else if (res.cancel) {
+          wx.showToast({
+            title: '您拒绝了请求,不能正常使用小程序',
+            icon: 'error',
+            duration: 2000
+          });
+        }
+      }
+    })
+  },
 })
