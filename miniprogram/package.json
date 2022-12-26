@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "@vant/weapp": "^1.10.10"
+    "@vant/weapp": "^1.10.10",
+    "hy-event-store": "^1.2.1"
   },
   "devDependencies": {},
   "scripts": {

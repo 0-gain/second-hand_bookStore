@@ -66,6 +66,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "书籍详情",
+          "pathName": "pages/detail-book/detail-book",
+          "query": "id=1bf14b8663a3ff2200796733151d2fe5",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

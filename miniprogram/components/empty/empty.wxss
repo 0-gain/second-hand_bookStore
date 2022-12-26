@@ -1,0 +1,11 @@
+/* components/empty/empty.wxss */
+.empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200rpx;
+  color: #9E9E9E;
+}
+.empty .icon{
+  width: 400rpx;
+}

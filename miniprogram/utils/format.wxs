@@ -1,0 +1,14 @@
+module.exports.formatWordSpace = function formatWordSpace(str) {
+  return str ? str.replace(getRegExp('\\\\n','g'),'\n') : str
+}
+module.exports.formatPrice = function formatPrice(price){
+  if(price){
+    if(!price.split('.')[1]){
+      price = price + '.00'
+    }else if(price.split('.')[1].length < 2){
+      price = price + '0'
+    }
+    return '￥' + price
+  }
+
+}

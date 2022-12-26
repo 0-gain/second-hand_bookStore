@@ -1,2 +1,9 @@
-<!--pages/main-shopCar/main-shopCar.wxml-->
-<text>pages/main-shopCar/main-shopCar.wxml</text>
+
+<empty des="购物车是空的"/>
+
+<van-submit-bar
+  disabled
+  price="{{ 0 }}"
+  button-text="结算"
+  bind:submit="onSubmit"
+/>

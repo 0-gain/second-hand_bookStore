@@ -1,0 +1,100 @@
+/* pages/detail-book/detail-book.wxss */
+.detail .cover{
+  position: relative;
+  height: 400rpx;
+  overflow: hidden;
+}
+.detail .cover .img{
+  position: absolute;
+  width: 180rpx;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1;
+}
+.detail .cover .bg{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(15px);
+}
+.detail .main{
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin: 30rpx 20rpx;
+  padding: 20rpx;
+}
+.detail .main .subtitle{
+  margin: 10rpx 0;
+  font-size: 25rpx;
+  font-weight: 300;
+}
+.detail .main .price{
+  color: rgb(200, 93, 70);
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.detail .main .info{
+  margin-top: 20rpx;
+}
+.detail .main .info .info-row{
+  margin-bottom: 10rpx;
+  font-size: 25rpx;
+  font-weight: 300;
+}
+.detail .main .info .info-row .title{
+  color: #9E9E9E;
+}
+.detail .main .info .info-row .title::after{
+  content: ":";
+  margin:0 20rpx;
+}
+.detail .main .introduction{
+  font-weight: 300;
+  font-size: 30rpx;
+}
+.detail .main .introduction .title{
+  font-size: 40rpx;
+  font-weight: 700;
+  margin: 20rpx 0;
+}
+.detail .main .introduction .catalog .title{
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.detail .footer{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  font-size: 25rpx;
+  padding: 10rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #9E9E9E;
+}
+.detail .footer .item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.detail .footer .item .icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.detail .footer .addCar{
+  flex: 1;
+  align-self: center;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #4fc08d;
+  border-radius: 50rpx;
+}

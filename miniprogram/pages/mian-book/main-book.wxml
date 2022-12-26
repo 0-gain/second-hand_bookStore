@@ -17,7 +17,7 @@
     <view class="discount">
       <view class="title">特价书籍</view>
       <scroll-view class="scroll-wrap" scroll-x enable-flex>
-        <block wx:for="{{recommendList}}" wx:key="_id">
+        <block wx:for="{{discountList}}" wx:key="_id">
           <view class="item">
             <image class="cover" src="{{item.fileId}}" mode="scaleToFill" />
             <text class="name">{{item.title}}</text>
@@ -33,45 +33,23 @@
     <view class="recommend">
       <view class="title">精品推荐</view>
       <view class="recommend-content">
-        <view class="item">
-          <image class="cover" src="../../assets/images/book/10.jpg" mode="widthFix" />
-          <view class="info">
-            <text class="title">大地之灯</text>
-            <text class="author">安顿</text>
-            <text class="rating">豆瓣评分7.8</text>
-            <view class="price">
-              <view class="nowPrice">￥10.64</view>
-              <view class="oldPrice">￥28.00</view>
+        <block wx:for="{{recommendList}}" wx:key="_id">
+          <view class="item" data-id="{{item._id}}" bindtap="onClickBook">
+            <image class="cover" src="{{item.fileId}}" mode="widthFix" />
+            <view class="info">
+              <text class="title">{{item.title}}</text>
+              <text class="author">安顿</text>
+              <text class="rating">豆瓣评分:{{item.rating}}</text>
+              <view class="price">
+                <view class="nowPrice">￥{{item.nowPrice}}</view>
+                <view class="oldPrice">￥{{item.oldPrice}}</view>
+              </view>
+            </view>
+            <view class="shopCar">
+              <van-icon name="shopping-cart-o" size="40rpx" catchtap="addCar"/>
             </view>
           </view>
-          <view class="shopCar">
-            <van-icon name="shopping-cart-o" />
-          </view>
-        </view>
-        <view class="item">
-          <image class="cover" src="../../assets/images/book/10.jpg" mode="widthFix" />
-          <view class="info">
-            <text class="title">大地之灯</text>
-            <text class="author">安顿</text>
-            <text class="rating">豆瓣评分7.8</text>
-            <view class="price">
-              <view class="nowPrice">￥10.64</view>
-              <view class="oldPrice">￥28.00</view>
-            </view>
-          </view>
-        </view>
-        <view class="item">
-          <image class="cover" src="../../assets/images/book/10.jpg" mode="widthFix" />
-          <view class="info">
-            <text class="title">大地之灯</text>
-            <text class="author">安顿</text>
-            <text class="rating">豆瓣评分7.8</text>
-            <view class="price">
-              <view class="nowPrice">￥10.64</view>
-              <view class="oldPrice">￥28.00</view>
-            </view>
-          </view>
-        </view>
+        </block>
       </view>
     </view>
   </view>

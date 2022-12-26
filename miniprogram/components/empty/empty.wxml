@@ -1,0 +1,5 @@
+<!--components/empty/empty.wxml-->
+<view class="empty">
+  <image class="icon" src="{{iconUrl}}" mode="widthFix"/>
+  <text class="des">{{des}}</text>
+</view>

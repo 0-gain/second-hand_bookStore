@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/mian-book/main-book",
-    "pages/mian-profile/main-profile",
     "pages/main-shopCar/main-shopCar",
+    "pages/mian-profile/main-profile",
     "pages/main-publish/main-publish",
     "pages/student-login/student-login",
-    "pages/update-profile/update-profile"
+    "pages/update-profile/update-profile",
+    "pages/detail-book/detail-book"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
