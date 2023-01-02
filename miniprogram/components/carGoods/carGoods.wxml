@@ -1,0 +1,9 @@
+<wxs src="../../utils/format.wxs" module="format"/>
+<view class="item" wx:if="{{goods.nowPrice}}">
+  <van-checkbox class="checkbox" value="{{ checked }}" checked-color="#4fc08d" bind:change="onCheckboxChange"></van-checkbox>
+  <van-card class="card" price="{{format.formatPrice(goods.nowPrice)}}" desc="{{goods.author[0]}}" title="{{goods.title}}" thumb="{{ goods.fileId }}">
+    <view slot="footer">
+      <van-stepper value="{{ goods.counts }}" bind:change="onChange" disable-input button-size="35rpx" min="1" />
+    </view>
+  </van-card>
+</view>

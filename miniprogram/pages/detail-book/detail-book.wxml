@@ -7,8 +7,8 @@
     <view class="bg" style="background-image: url('{{tempFileURL}}') "></view>
   </view>
   <view class="main">
-    <view class="title">被讨厌的勇气</view>
-    <view class="subtitle">"自我启发之父"阿德勒的哲学课</view>
+    <view class="title">{{bookData.title}}</view>
+    <view class="subtitle">{{bookData.subtitle}}</view>
     <view class="price">{{format.formatPrice(bookData.nowPrice)}}</view>
     <view class="info">
       <view class="info-row">
@@ -17,9 +17,9 @@
       </view>
       <view class="info-row">
         <text class="title">作者</text>
-        <text>{{bookData.author[0]}}</text>
+        <text>{{bookData.author}}</text>
       </view>
-      <view class="info-row" wx:if="bookData.translators.length">
+      <view class="info-row" wx:if="{{bookData.translators.length}}">
         <text class="title">译者</text>
         <text>{{bookData.translators[0]}}</text>
       </view>
@@ -32,16 +32,16 @@
         <text>{{bookData.publishDate}}</text>
       </view>
       <view class="info-row">
-        <text class="title">装帧</text>
-        <text>{{bookData.binding}}</text>
+        <text class="title">新旧</text>
+        <text>{{bookData.condition}}</text>
       </view>
     </view>
     <view class="introduction">
-      <view class="title" wx:if="bookData.summary">
+      <view class="title" wx:if="{{bookData.summary}}">
         简介和目录
       </view>
       <text class="summary">{{format.formatWordSpace(bookData.summary)}}</text>
-      <view class="catalog" wx:if="bookData.catalog">
+      <view class="catalog" wx:if="{{bookData.catalog}}">
         <view class="title">目录：</view>
         <text>
           {{format.formatWordSpace(bookData.catalog)}}

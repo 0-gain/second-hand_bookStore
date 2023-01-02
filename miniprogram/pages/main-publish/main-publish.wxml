@@ -1,2 +1,78 @@
-<!--pages/main-publish/main-publish.wxml-->
-<text>pages/main-publish/main-publish.wxml</text>
+<!-- 步骤条 -->
+<van-steps steps="{{ steps }}" active="{{ active }}" active-color="#4fc08d" />
+<!-- 步骤一 -->
+<view class="prepare" wx:if="{{active === 0}}">
+  <van-field value="{{ ISDN }}" center clearable type="number" label="ISND" left-icon="scan" placeholder="请输入书籍的ISDN" border use-button-slot bind:blur="onInputBlur">
+    <van-button slot="button" size="small" icon="success" color="#4fc08d" round bind:click="onConfim">
+      确认
+    </van-button>
+  </van-field>
+  <view class="content">
+    <image class="bg" src="../../assets/images/isbn.jpg" mode="widthFix" />
+    <text class="des">您还可以直接通过摄像头扫码出</text>
+    <text class="des">ISDN码</text>
+    <image class="next" src="../../assets/images/next.png" mode="widthFix" />
+  </view>
+  <van-button class="scan btn" size="normal" color="#4fc08d" round bindtap="getIsdnCode">
+    点击扫码
+  </van-button>
+
+</view>
+<!-- 步骤二 -->
+<view class="detail" wx:if="{{active === 1}}">
+  <van-cell-group>
+    <van-field value="{{ bookname }}" label="书籍名称" placeholder="请输入书籍的名称" border bind:change="onChange" />
+    <view class="uploader">
+      <view class="title">添加图片</view>
+      <van-uploader file-list="{{ fileList }}" deletable bind:after-read="afterRead" />
+    </view>
+    <van-cell title="新旧程度" is-link value="{{condition}}" bindtap="changePickStatus" />
+    <van-cell title="所属分类">
+      <view slot="right-icon">
+        <van-radio-group value="{{ radioBookType }}" bind:change="onChangeRadioStatus">
+          <van-radio class="common" name="1" checked-color="#4fc08d">通用类</van-radio>
+          <van-radio name="2" checked-color="#4fc08d">专业书</van-radio>
+        </van-radio-group>
+      </view>
+    </van-cell>
+    <van-cell wx:if="{{radioBookType === '2'}}" title="专业分类" is-link value="{{major}}" bindtap="selectMajor" />
+    <van-field value="{{ oldPrice }}" label="原价(元)" placeholder="最多保留2位小数" border readonly bind:change="onchangeOldPrice"/>
+    <van-cell title="交易方式">
+      <view slot="right-icon">
+        <van-radio-group value="{{ radioTradeType }}" bind:change="onChangeTradeType">
+          <van-radio class="common" name="1" checked-color="#4fc08d">出售</van-radio>
+          <van-radio name="2" checked-color="#4fc08d">租借</van-radio>
+        </van-radio-group>
+      </view>
+    </van-cell>
+    <van-field wx:if="{{radioTradeType === '1'}}" value="{{ nowPrice }}" label="二手价(元)" placeholder="最多保留2位小数" border bind:change="onchangeNowPrice"/>
+    <van-field wx:if="{{radioTradeType === '2'}}" value="{{ rentPrice }}" label="租价(0.5~3元/天)" placeholder="最多保留2位小数" border bind:change="onchangeRentPrice"/>
+    <van-field value="{{ phone }}" label="联系电话" placeholder="请输入11位的电话号码" border bind:change="onchangePhone"/>
+    <van-field value="{{ description }}" label="书本描述" type="textarea" placeholder="请简单描述书本使用情况" autosize border bind:change="onchangeBookDescription"/>
+  </van-cell-group>
+  <!-- 弹出层 -->
+  <van-popup show="{{ isShowPopup }}" position="bottom" custom-style="height: 40%" bind:close="onClose">
+    <van-picker show-toolbar columns="{{ isMultCol ? multColumns : conditionsColumns }}" bind:confirm="onConfirmPicker" bind:change="onChangePicker" />
+  </van-popup>
+
+  <view class="publish">
+    <van-button class="btn" size="normal" color="#4fc08d" icon="guide-o" round bind:click="checkPublish">
+      马上发布
+    </van-button>
+  </view>
+</view>
+
+<!-- 步骤三 -->
+<view class="step_end" wx:if="{{active === 2}}">
+  <view class="container">
+    <image class="bg_success" src="../../assets/images/success.png" mode="widthFix"/>
+    <view class="title">恭喜您 发布成功</view>
+    <view class="des">订单的实时状态将通过短信通知您</view>
+    <view class="see">查看发布详情</view>
+    <view class="publish">
+    <van-button class="btn" size="normal" color="#4fc08d" icon="guide-o" round>
+      再次发布
+    </van-button>
+  </view>
+  </view>
+</view>

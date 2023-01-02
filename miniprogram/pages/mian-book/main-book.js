@@ -1,7 +1,8 @@
-// pages/mian-book/main-book.js
+// 连接云数据库
 const db = wx.cloud.database()
 const bannerCol = db.collection('banner')
 const bookCol = db.collection('book')
+const carCol = db.collection('carList')
 Page({
   /**
    * 页面的初始数据
@@ -49,12 +50,49 @@ Page({
     })
   },
   // 加入购物车
-  addCar(){
-    console.log('点击')
+  async addCar(event) {
+    const {
+      goods
+    } = event.currentTarget.dataset
+    // 给当前商品添加isSelect和counts属性
+    goods.isSelect = true
+    // 判断当前数据库中是否已经存在该书籍
+    const res = await carCol.doc(goods._id).get()
+    if (res.data) {
+      let {
+        counts
+      } = res.data
+      // 说明当前书籍已经存在购物车,则更新购物车书籍数量
+      await carCol.doc(goods._id).update({
+        data: {
+          counts: counts + 1
+        }
+      }).then(() => {
+        wx.showToast({
+          title: '添加购物车成功',
+          icon: 'success',
+          mask: true
+        })
+      })
+    } else {
+      goods.counts = 1
+      carCol.add({
+        data: goods
+      }).then(res => {
+        wx.showToast({
+          title: '添加购物车成功',
+          icon: 'success',
+          mask: true
+        })
+      })
+    }
+
   },
   // 监听事件
-  onClickBook(event){
-    const {id} = event.currentTarget.dataset
+  onClickBook(event) {
+    const {
+      id
+    } = event.currentTarget.dataset
     wx.navigateTo({
       url: `/pages/detail-book/detail-book?id=${id}`,
     })

@@ -38,7 +38,9 @@
             <image class="cover" src="{{item.fileId}}" mode="widthFix" />
             <view class="info">
               <text class="title">{{item.title}}</text>
-              <text class="author">安顿</text>
+              <text class="author">
+              {{item.author}}
+              </text>
               <text class="rating">豆瓣评分:{{item.rating}}</text>
               <view class="price">
                 <view class="nowPrice">￥{{item.nowPrice}}</view>
@@ -46,7 +48,7 @@
               </view>
             </view>
             <view class="shopCar">
-              <van-icon name="shopping-cart-o" size="40rpx" catchtap="addCar"/>
+              <van-icon name="shopping-cart-o" size="40rpx" data-goods="{{item}}" catchtap="addCar"/>
             </view>
           </view>
         </block>

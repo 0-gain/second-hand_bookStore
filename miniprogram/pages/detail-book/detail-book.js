@@ -8,7 +8,7 @@ Page({
   data: {
     // 书的id
     _id: '',
-    coverUrl: 'cloud://mini-book-9g0t3pjt8a356dc9.6d69-mini-book-9g0t3pjt8a356dc9-1314521075/recommend_book/1.jpeg',
+    coverUrl: '',
     tempFileURL: '',
     bookData:''
   },
@@ -21,15 +21,19 @@ Page({
     const {
       id
     } = options
-    this.data._id = id
+    this.setData({_id:id})
     this.getBookDetail()
-    this.getTempFileURL()
+    
   },
   // 获取书籍详情数据
   async getBookDetail() {
+    wx.showLoading({
+      title: '加载中...',
+    })
     const res = await bookCol.doc(this.data._id).get()
     const bookData = res.data
-    this.setData({bookData})
+    this.setData({bookData,coverUrl:res.data.fileId})
+    this.getTempFileURL()
   },
   // 获取图片临时路径
   async getTempFileURL() {
@@ -42,6 +46,7 @@ Page({
     this.setData({
       tempFileURL
     })
+    wx.hideLoading()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,20 @@
+/* components/carGoods/carGoods.wxss */
+.item {
+  display: flex;
+  align-items: center;
+  background-color: #fafafa;
+  border-bottom: 1rpx solid #ebedf0;
+}
+.item .checkbox {
+  padding-left: 30rpx;
+}
+.item .card {
+  flex: 1;
+  background-color: #fff;
+}
+.van-stepper__input {
+  font-size: 25rpx !important;
+}
+.van-card__price{
+  color: rgb(210,172,107) !important;
+}

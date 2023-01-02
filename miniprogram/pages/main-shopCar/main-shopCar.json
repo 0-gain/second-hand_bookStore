@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "van-submit-bar": "@vant/weapp/submit-bar/index",
-    "empty":"../../components/empty/empty"
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "empty":"../../components/empty/empty",
+    "goods":"../../components/carGoods/carGoods"
   },
   "navigationBarTitleText": "购物车",
   "navigationBarTextStyle":"white",

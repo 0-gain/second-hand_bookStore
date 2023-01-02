@@ -1,1 +1,86 @@
 /* pages/main-publish/main-publish.wxss */
+.prepare{
+  text-align: center;
+}
+.prepare .content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 50rpx;
+}
+.prepare .content .bg{
+  width: 400rpx;
+}
+.prepare .content .des{
+  color: #969799;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.prepare .content .next{
+  width: 60rpx;
+}
+.btn .van-button{
+  display: inline-block;
+  width: 500rpx;
+  line-height: 44px;
+}
+
+.detail{
+  font-size: 28rpx;
+  color: #646566;
+  margin-top: 50rpx;
+  background-color: #fff;
+}
+.detail .uploader {
+  position: relative;
+  padding: 10px 16px;
+}
+.detail .uploader::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  border-bottom: 1rpx solid #ebedf0;
+  transform: scaleY(.5);
+  transform-origin: center;
+}
+.detail .uploader .title{
+  padding-bottom: 10px;
+}
+.step_end{
+  background-color: #fff;
+}
+.step_end .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 66.8px);
+  padding-top: 100rpx;
+  text-align: center;
+}
+.step_end .container .bg_success{
+  width: 200rpx;
+}
+.step_end .container .title{
+  font-weight: 700;
+  margin: 50rpx 0;
+  font-size: 45rpx;
+}
+.step_end .container .des{
+  color: #9E9E9E;
+  margin: 50rpx 0;
+}
+
+.publish{
+  padding: 50rpx 0;
+  text-align: center;
+}
+
+.van-radio-group{
+  display: flex;
+}
+.common{
+  margin-right: 30rpx;
+}

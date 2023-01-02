@@ -85,6 +85,7 @@
   left: 0;
   right: 0;
   border-bottom: 1rpx solid #ebedf0;
+  transform: scaleY(.5);
   transform-origin: center;
 }
 .content .recommend .recommend-content .cover{

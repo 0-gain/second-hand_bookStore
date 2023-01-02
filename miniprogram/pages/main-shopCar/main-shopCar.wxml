@@ -1,9 +1,11 @@
+<empty wx:if="{{!list.length}}" des="购物车是空的" />
 
-<empty des="购物车是空的"/>
+<view class="content">
+  <block wx:for="{{list}}" wx:key="_id">
+    <goods goods="{{item}}" bindEvent="getCarList" id="goodsCpn"/>
+  </block>
+</view>
 
-<van-submit-bar
-  disabled
-  price="{{ 0 }}"
-  button-text="结算"
-  bind:submit="onSubmit"
-/>
+<van-submit-bar price="{{ totalPrice }}" button-text="提交订单" bind:submit="onClickButton">
+  <van-checkbox value="{{ checked }}" bind:change="onIsCheckedAll"  checked-color="#4fc08d">全选</van-checkbox>
+</van-submit-bar>
